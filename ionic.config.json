@@ -1,0 +1,7 @@
+{
+  "name": "HHA-PAYMENT",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
