@@ -1,1 +1,11 @@
-
+ion-tabs {
+    ion-tab-bar {
+      --border: 0px !important;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      ion-tab-button {
+        -webkit-transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        --color: #423e3e !important;
+      }
+    }
+  }

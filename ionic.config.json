@@ -1,7 +1,8 @@
 {
   "name": "HHA-PAYMENT",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }

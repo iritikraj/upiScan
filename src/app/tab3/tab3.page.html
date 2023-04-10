@@ -1,17 +1,17 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<ion-header mode="ios">
     <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
+        <ion-title>Generate QR Code</ion-title>
     </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+</ion-header>
+<ion-content>
+    <ion-item id="custom-item" counter="true" [counterFormatter]="customCounterFormatter">
+        <ion-label position="floating">Enter Text To Generate QR</ion-label>
+        <ion-input maxlength="40" (ionChange)="createQrCode()" [(ngModel)]="qrData"></ion-input>
+    </ion-item>     
+    <div style="margin: auto;">
+        <qr-code [value]="createdCodeName" size="300" errorCorrectionLevel="M"></qr-code>
+    </div>
+    <div style="position: absolute; bottom: 0; right: 20px; left: 20px;">
+        <ion-button mode="ios" shape="round" size="medium" expand="block" (click)="saveImage()"><ion-icon name="qr-code-outline"></ion-icon>Save QR To Gallery</ion-button>
+    </div>
 </ion-content>

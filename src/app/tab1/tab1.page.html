@@ -1,17 +1,62 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+  <ion-header mode="ios">
+    <ion-toolbar mode="ios">
+      <ion-title>Welcome</ion-title>
+      <ion-buttons slot="end">
+         <ion-button (click)="info()" slot="icon-only">
+            <ion-icon size="large" name="information-circle-outline"></ion-icon>
+         </ion-button>
+      </ion-buttons>
     </ion-toolbar>
   </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
-</ion-content>
+  <ion-content>
+    <div class="login-bg">
+       <ion-grid>
+          <ion-row class="ion-justify-content-center">
+             <ion-col class="card" size="12" size-sm="6" size-md="4" size-lg="3">
+                <form [formGroup]="upiForm" (submit)="payNow()">
+                   <ion-row class="ion-margin-bottom">
+                      <ion-col size="12" class="ion-margin-bottom">
+                         <h1 class="title ion-text-center"> Enter Details </h1>
+                      </ion-col>
+                   </ion-row>
+                   <ion-row class="ion-margin-bottom">
+                      <ion-col size="12">
+                         <ion-item lines="none" class="ion-margin-bottom ion-align-self-center">
+                            <ion-label mode="md" position="floating">Enter Receiver's UPI ID</ion-label>
+                            <ion-input formControlName="upi" placeholder="abc@okybl"></ion-input>
+                         </ion-item>
+                      </ion-col>
+                   </ion-row>
+                   <ion-row class="ion-margin-bottom">
+                    <ion-col size="12">
+                       <ion-item lines="none" class="ion-margin-bottom ion-align-self-center">
+                          <ion-label mode="md" position="floating">Enter Receiver's Name</ion-label>
+                          <ion-input formControlName="name" placeholder="Enter Name"></ion-input>
+                       </ion-item>
+                    </ion-col>
+                   </ion-row>
+                   <ion-row class="ion-margin-bottom">
+                     <ion-col size="12">
+                        <ion-item lines="none" class="ion-margin-bottom ion-align-self-center">
+                           <ion-label mode="md" position="floating">Enter Amount</ion-label>
+                           <ion-input required="true" type="text" type="number" inputmode="number" formControlName="amount" placeholder="Amount"></ion-input>
+                        </ion-item>
+                     </ion-col>
+                    </ion-row>
+                   <ion-row>
+                      <ion-col size="12">
+                         <ion-row class="ion-margin-bottom">
+                            <ion-col size="12">
+                               <ion-button type="submit" expand="full" fill="solid" shape="round" color="primary" size="medium" class="ion-no-margin">
+                                  Pay Now
+                               </ion-button>
+                            </ion-col>
+                         </ion-row>
+                      </ion-col>
+                   </ion-row>
+                </form>
+             </ion-col>
+          </ion-row>
+       </ion-grid>
+    </div>
+ </ion-content>
