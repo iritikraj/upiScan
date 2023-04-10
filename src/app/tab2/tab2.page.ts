@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
+import { Browser } from '@capacitor/browser';
 import { ToastController } from '@ionic/angular';
 @Component({
   selector: 'app-tab2',
@@ -8,6 +9,8 @@ import { ToastController } from '@ionic/angular';
 })
 export class Tab2Page {
   scanActive: boolean = false;
+  url: any;
+  upiId: any;
 
   constructor(private toastController: ToastController) {}
   async checkPermission() {
@@ -30,8 +33,11 @@ export class Tab2Page {
       const result = await BarcodeScanner.startScan();
       if (result.hasContent) {
         this.scanActive = false;
-        alert(result.content); //The QR content will come out here
+        this.upiId = result.content;
+        console.log(result.content); //The QR content will come out here
         //Handle the data as your heart desires here
+        this.payNow();
+       
       } else {
         this.presentToast()
         console.log('No Data Found')
@@ -61,6 +67,23 @@ export class Tab2Page {
     });
 
     await toast.present();
+  }
+
+  payNow(){
+    let name = 'Swapnil'
+    let upi = this.upiId.split(" ").join("")
+    let amount = 2
+    let note = 'Payingforproduct'
+    console.log(name , upi , amount , note)
+
+    this.url = `upi://pay?pa=${upi}&pn=${upi}&am=${amount}&cu=INR&tn=${note}&mode=02`;
+    this.openBrowser()
+
+  }
+
+  async openBrowser(){
+    console.log('browser opened')
+    await Browser.open({url : this.url})
   }
 }
 

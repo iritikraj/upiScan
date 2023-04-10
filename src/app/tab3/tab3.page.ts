@@ -1,7 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
-import { NativeAudio } from '@capacitor-community/native-audio';
+// import { NativeAudio } from '@capacitor-community/native-audio';
 
 @Component({
   selector: 'app-tab3',
@@ -21,12 +21,12 @@ export class Tab3Page {
   constructor(private toastController:ToastController) {}
 
   ngOnInit(){
-    NativeAudio.preload({
-      assetId: 'qrgeneratednotification',
-      assetPath: 'http://commondatastorage.googleapis.com/codeskulptor-assets/Collision8-Bit.ogg',
-      audioChannelNum: 1,
-      isUrl: false
-  });
+  //   NativeAudio.preload({
+  //     assetId: 'qrgeneratednotification',
+  //     assetPath: 'http://commondatastorage.googleapis.com/codeskulptor-assets/Collision8-Bit.ogg',
+  //     audioChannelNum: 1,
+  //     isUrl: false
+  // });
   }
     
   createQrCode () {
@@ -79,15 +79,15 @@ export class Tab3Page {
   }
 
   playSound(){
-    NativeAudio.play({
-      assetId: 'qrgeneratednotification',
-      time: 6.0
-    });
-    NativeAudio.isPlaying({
-      assetId: 'qrgeneratednotification'
-    })
-    .then(result => {
-      console.log(result.isPlaying);
-    })
+    // NativeAudio.play({
+    //   assetId: 'qrgeneratednotification',
+    //   time: 6.0
+    // });
+    // NativeAudio.isPlaying({
+    //   assetId: 'qrgeneratednotification'
+    // })
+    // .then(result => {
+    //   console.log(result.isPlaying);
+    // })
   }
 }
